@@ -21,6 +21,12 @@
       "type": "string",
       "unique": true,
       "required": true
+    },
+    "celebrations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::celebration.celebration",
+      "mappedBy": "country"
     }
   }
 }

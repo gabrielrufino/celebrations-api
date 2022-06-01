@@ -1,9 +1,11 @@
 module.exports = {
-  apps : [{
-    script: 'start',
-    interpreter: 'strapi',
-    watch: '.'
-  }],
+  apps : [
+    {
+      name: 'Celebrations API',
+      script: 'npm',
+      args: 'start',
+    },
+  ],
   deploy : {
     production : {
       user : 'SSH_USERNAME',

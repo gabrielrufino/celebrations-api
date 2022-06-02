@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "countries",
+  "info": {
+    "singularName": "country",
+    "pluralName": "countries",
+    "displayName": "Country"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "uid",
+      "required": true,
+      "maxLength": 2,
+      "minLength": 2
+    },
+    "name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "celebrations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::celebration.celebration",
+      "mappedBy": "country"
+    }
+  }
+}

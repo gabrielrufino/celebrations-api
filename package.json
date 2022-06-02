@@ -1,23 +1,25 @@
 {
-  "name": "restdays-api",
+  "name": "celebrations-api",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "API for celebrations & holidays",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.1.11",
-    "@strapi/plugin-users-permissions": "4.1.11",
-    "@strapi/plugin-i18n": "4.1.11",
-    "better-sqlite3": "7.4.6"
+    "@strapi/plugin-documentation": "^4.1.12",
+    "@strapi/plugin-i18n": "^4.1.12",
+    "@strapi/plugin-users-permissions": "^4.1.12",
+    "@strapi/strapi": "^4.1.12",
+    "better-sqlite3": "^7.5.3",
+    "pm2": "^5.2.0"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Gabriel Rufino",
+    "email": "contato@gabrielrufino.com"
   },
   "strapi": {
     "uuid": "184a821f-4b81-4c36-8091-66555e6cf47e"

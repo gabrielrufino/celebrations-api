@@ -14,7 +14,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
-          registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-      - run: SERVER_SSH_USER=$SERVER_SSH_USER SERVER_SSH_HOST=$SERVER_SSH_HOST npx pm2 deploy production setup
-      - run: SERVER_SSH_USER=$SERVER_SSH_USER SERVER_SSH_HOST=$SERVER_SSH_HOST npx pm2 deploy production
+      - run: SERVER_SSH_USER=${{ secrets.SERVER_SSH_USER }} SERVER_SSH_HOST=${{ secrets.SERVER_SSH_HOST }} npx pm2 deploy production setup
+      - run: SERVER_SSH_USER=${{ secrets.SERVER_SSH_USER }} SERVER_SSH_HOST=${{ secrets.SERVER_SSH_HOST }} npx pm2 deploy production

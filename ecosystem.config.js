@@ -7,10 +7,10 @@ module.exports = {
       env_production: {
         HOST: process.env.PROD_HOST,
         PORT: process.env.PROD_PORT,
-        APP_KEYS: process.env.APP_KEYS,
-        API_TOKEN_SALT: process.env.API_TOKEN_SALT,
-        ADMIN_JWT_SECRET: process.env.ADMIN_JWT_SECRET,
-        JWT_SECRET: process.env.JWT_SECRET
+        APP_KEYS: process.env.PROD_APP_KEYS,
+        API_TOKEN_SALT: process.env.PROD_API_TOKEN_SALT,
+        ADMIN_JWT_SECRET: process.env.PROD_ADMIN_JWT_SECRET,
+        JWT_SECRET: process.env.PROD_JWT_SECRET
       }
     },
   ],

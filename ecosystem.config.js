@@ -22,7 +22,7 @@ module.exports = {
       repo: 'https://github.com/gabrielrufino/celebrations-api.git',
       path: '/var/www/celebrations-api',
       'pre-deploy-local': '',
-      'post-deploy' : 'npm ci && pm2 reload ecosystem.config.js --env production',
+      'post-deploy' : 'npm ci && npx pm2 reload ecosystem.config.js --env production',
       'pre-setup': ''
     }
   }

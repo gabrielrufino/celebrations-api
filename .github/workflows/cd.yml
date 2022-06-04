@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: SERVER_SSH_USER=$SERVER_SSH_USER SERVER_SSH_HOST=$SERVER_SSH_HOST npx pm2 deploy production setup
+      - run: npx pm2 deploy production setup
         env:
           SERVER_SSH_USER: ${{ secrets.SERVER_SSH_USER }}
           SERVER_SSH_HOST: ${{ secrets.SERVER_SSH_HOST }}

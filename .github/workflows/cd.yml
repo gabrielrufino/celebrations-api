@@ -18,7 +18,7 @@ jobs:
         uses: shimataro/ssh-key-action@v2.3.1
         with:
           key: ${{ secrets.SERVER_SSH_KEY }}
-          known_hosts: ${{ secrets.SERVER_SSH_HOST }}
+          known_hosts: ${{ secrets.SERVER_KNOWN_HOSTS }}
       - run: npm ci
       - run: npx pm2 deploy production setup
         env:

@@ -7,7 +7,8 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "reinstall": "rimraf node_modules && npm ci"
   },
   "dependencies": {
     "@strapi/plugin-documentation": "^4.1.12",
@@ -28,5 +29,8 @@
     "node": ">=12.x.x <=16.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
 }

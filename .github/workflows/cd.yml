@@ -2,7 +2,7 @@ name: Continuous Delivery
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -18,7 +18,7 @@ jobs:
           port: 22
           script: |
             cd $HOME/celebrations-api
-            git pull origin master
+            git pull origin main
             git status
             npm ci
             npx pm2 restart all

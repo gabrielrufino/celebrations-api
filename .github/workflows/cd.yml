@@ -9,16 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: npx pm2 deploy production
-        env:
-          SERVER_SSH_USER: ${{ secrets.SERVER_SSH_USER }}
-          SERVER_SSH_HOST: ${{ secrets.SERVER_SSH_HOST }}
-          HOST: ${{ secrets.PROD_HOST }}
-          PORT: ${{ secrets.PROD_PORT }}
-          APP_KEYS: ${{ secrets.PROD_APP_KEYS }}
-          API_TOKEN_SALT: ${{ secrets.PROD_API_TOKEN_SALT }}
-          ADMIN_JWT_SECRET: ${{ secrets.PROD_ADMIN_JWT_SECRET }}
-          JWT_SECRET: ${{ secrets.PROD_JWT_SECRET }}
       - name: Deploy using SSH
         uses: appleboy/ssh-action@master
         with:

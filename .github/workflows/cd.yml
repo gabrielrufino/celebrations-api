@@ -19,6 +19,5 @@ jobs:
           script: |
             cd $HOME/celebrations-api
             git pull origin main
-            git status
             npm ci
             npx pm2 restart all

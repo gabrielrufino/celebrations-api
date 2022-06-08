@@ -27,6 +27,12 @@
       "relation": "oneToMany",
       "target": "api::celebration.celebration",
       "mappedBy": "country"
+    },
+    "states": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::state.state",
+      "mappedBy": "country"
     }
   }
 }

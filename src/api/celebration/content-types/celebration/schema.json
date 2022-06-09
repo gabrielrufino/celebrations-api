@@ -35,6 +35,12 @@
       "relation": "manyToOne",
       "target": "api::state.state",
       "inversedBy": "celebrations"
+    },
+    "city": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::city.city",
+      "inversedBy": "celebrations"
     }
   }
 }

@@ -30,6 +30,12 @@
       "relation": "oneToMany",
       "target": "api::celebration.celebration",
       "mappedBy": "state"
+    },
+    "cities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::city.city",
+      "mappedBy": "state"
     }
   }
 }

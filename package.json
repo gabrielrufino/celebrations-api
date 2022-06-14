@@ -24,6 +24,7 @@
     "name": "Gabriel Rufino",
     "email": "contato@gabrielrufino.com"
   },
+  "funding": "https://github.com/sponsors/gabrielrufino",
   "strapi": {
     "uuid": "184a821f-4b81-4c36-8091-66555e6cf47e"
   },

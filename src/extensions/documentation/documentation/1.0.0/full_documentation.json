@@ -2,19 +2,19 @@
   "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
-    "title": "DOCUMENTATION",
+    "title": "Celebrations API",
     "description": "",
     "termsOfService": "YOUR_TERMS_OF_SERVICE_URL",
     "contact": {
-      "name": "TEAM",
-      "email": "contact-email@something.io",
-      "url": "mywebsite.io"
+      "name": "Gabriel Rufino",
+      "email": "contato@gabrielrufino.com",
+      "url": "gabrielrufino.com"
     },
     "license": {
-      "name": "Apache 2.0",
-      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+      "name": "MIT",
+      "url": "https://github.com/gabrielrufino/celebrations-api/blob/main/LICENSE"
     },
-    "x-generation-date": "2022-06-14T21:30:41.296Z"
+    "x-generation-date": "2022-06-15T15:48:10.052Z"
   },
   "x-strapi-config": {
     "path": "/documentation",

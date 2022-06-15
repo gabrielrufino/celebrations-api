@@ -1,0 +1,14 @@
+{
+  "info": {
+    "title": "Celebrations API",
+    "contact": {
+      "name": "Gabriel Rufino",
+      "email": "contato@gabrielrufino.com",
+      "url": "gabrielrufino.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/gabrielrufino/celebrations-api/blob/main/LICENSE"
+    }
+  }
+}

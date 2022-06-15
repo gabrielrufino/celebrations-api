@@ -14,7 +14,7 @@
       "name": "MIT",
       "url": "https://github.com/gabrielrufino/celebrations-api/blob/main/LICENSE"
     },
-    "x-generation-date": "2022-06-15T15:48:10.052Z"
+    "x-generation-date": "2022-06-15T15:53:17.665Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -149,6 +149,7 @@
         }
       },
       "CelebrationListResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "array",
@@ -948,6 +949,7 @@
         }
       },
       "CelebrationResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "object",
@@ -1768,6 +1770,7 @@
         }
       },
       "CityListResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "array",
@@ -2546,6 +2549,7 @@
         }
       },
       "CityResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "object",
@@ -3352,6 +3356,7 @@
         }
       },
       "CountryListResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "array",
@@ -4136,6 +4141,7 @@
         }
       },
       "CountryResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "object",
@@ -4959,6 +4965,7 @@
         }
       },
       "StateListResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "array",
@@ -5760,6 +5767,7 @@
         }
       },
       "StateResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "object",
@@ -6612,6 +6620,7 @@
         }
       },
       "UploadFileListResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "array",
@@ -7007,6 +7016,7 @@
         }
       },
       "UploadFileResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "object",
@@ -7409,6 +7419,7 @@
         }
       },
       "UsersPermissionsPermissionListResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "array",
@@ -8002,6 +8013,7 @@
         }
       },
       "UsersPermissionsPermissionResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "object",
@@ -8625,6 +8637,7 @@
         }
       },
       "UsersPermissionsRoleListResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "array",
@@ -9247,6 +9260,7 @@
         }
       },
       "UsersPermissionsRoleResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "object",
@@ -9901,6 +9915,7 @@
         }
       },
       "UsersPermissionsUserListResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "array",
@@ -10513,6 +10528,7 @@
         }
       },
       "UsersPermissionsUserResponse": {
+        "type": "object",
         "properties": {
           "data": {
             "type": "object",
@@ -13038,77 +13054,6 @@
           }
         ],
         "operationId": "delete/states/{id}"
-      }
-    },
-    "/upload/files/count": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UploadFileResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "tags": [
-          "Upload - File"
-        ],
-        "parameters": [],
-        "operationId": "get/upload/files/count"
       }
     },
     "/upload/files": {

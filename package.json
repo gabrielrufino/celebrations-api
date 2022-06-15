@@ -1,7 +1,7 @@
 {
   "name": "celebrations-api",
   "private": true,
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "API for celebrations & holidays",
   "scripts": {
     "develop": "strapi develop",
@@ -11,10 +11,10 @@
     "reinstall": "rimraf node_modules && npm ci"
   },
   "dependencies": {
-    "@strapi/plugin-documentation": "^4.1.12",
-    "@strapi/plugin-i18n": "^4.1.12",
-    "@strapi/plugin-users-permissions": "^4.1.12",
-    "@strapi/strapi": "^4.1.12",
+    "@strapi/plugin-documentation": "^4.2.0",
+    "@strapi/plugin-i18n": "^4.2.0",
+    "@strapi/plugin-users-permissions": "^4.2.0",
+    "@strapi/strapi": "^4.2.0",
     "better-sqlite3": "^7.5.3",
     "pg": "^8.7.3",
     "pm2": "^5.2.0",
@@ -24,6 +24,7 @@
     "name": "Gabriel Rufino",
     "email": "contato@gabrielrufino.com"
   },
+  "funding": "https://github.com/sponsors/gabrielrufino",
   "strapi": {
     "uuid": "184a821f-4b81-4c36-8091-66555e6cf47e"
   },

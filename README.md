@@ -1,7 +1,7 @@
 # Celebrations API 🗓️🎉
 
 <p align="center">
-  <img width="350px" src="./assets/logo.png">
+  <img width="300px" src="./assets/logo.png">
 </p>
 
 API for celebrations & holidays.

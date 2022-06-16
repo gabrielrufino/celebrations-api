@@ -6,6 +6,44 @@
 
 API for celebrations & holidays.
 
+## Authentication & Authorization
+
+### Creating user
+
+> **POST** `/auth/local`
+
+```json
+{
+  "username": "clark",
+  "email": "clark@superman.com",
+  "password": "loislane"
+}
+```
+
+### Getting token
+
+> **POST** `/auth/local`
+
+**Using username:**
+```json
+{
+  "username": "clark",
+  "password": "loislane"
+}
+```
+
+**Using email:**
+```json
+{
+  "username": "clark@superman.com",
+  "password": "loislane"
+}
+```
+
+## CONTRIBUTING
+
+This is a project made in [Strapi](https://strapi.io/). Feel free to make contributions.
+
 ### `develop`
 
 Start your Celebrations API with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)

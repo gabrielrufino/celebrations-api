@@ -10,7 +10,7 @@ API for celebrations & holidays.
 
 ### Creating user
 
-> **POST** `/auth/local`
+> **POST** `/api/users`
 
 ```json
 {
@@ -22,7 +22,7 @@ API for celebrations & holidays.
 
 ### Getting token
 
-> **POST** `/auth/local`
+> **POST** `/api/auth/local`
 
 **Using username:**
 ```json

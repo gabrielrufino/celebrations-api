@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "title": "Celebrations API",
     "description": "",
     "termsOfService": "YOUR_TERMS_OF_SERVICE_URL",
@@ -14,7 +14,7 @@
       "name": "MIT",
       "url": "https://github.com/gabrielrufino/celebrations-api/blob/main/LICENSE"
     },
-    "x-generation-date": "2022-06-16T19:44:00.178Z"
+    "x-generation-date": "2022-06-17T20:54:05.007Z"
   },
   "x-strapi-config": {
     "path": "/documentation",

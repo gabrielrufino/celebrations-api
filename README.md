@@ -1,6 +1,48 @@
-# Celebrations API 🎉🗓️
+# Celebrations API 🗓️🎉
+
+<p align="center">
+  <img width="300px" src="./assets/logo.png">
+</p>
 
 API for celebrations & holidays.
+
+## Authentication & Authorization
+
+### Creating user
+
+> **POST** `/api/users`
+
+```json
+{
+  "username": "clark",
+  "email": "clark@superman.com",
+  "password": "loislane"
+}
+```
+
+### Getting token
+
+> **POST** `/api/auth/local`
+
+**Using username:**
+```json
+{
+  "username": "clark",
+  "password": "loislane"
+}
+```
+
+**Using email:**
+```json
+{
+  "username": "clark@superman.com",
+  "password": "loislane"
+}
+```
+
+## CONTRIBUTING
+
+This is a project made in [Strapi](https://strapi.io/). Feel free to make contributions.
 
 ### `develop`
 

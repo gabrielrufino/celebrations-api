@@ -14,7 +14,7 @@
       "name": "MIT",
       "url": "https://github.com/gabrielrufino/celebrations-api/blob/main/LICENSE"
     },
-    "x-generation-date": "2022-06-23T00:55:34.888Z"
+    "x-generation-date": "2022-06-23T02:44:29.407Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -97,7 +97,8 @@
             "required": [
               "name",
               "date",
-              "isBusinessDay"
+              "isBusinessDay",
+              "isRecurrent"
             ],
             "type": "object",
             "properties": {
@@ -107,6 +108,12 @@
               "date": {
                 "type": "string",
                 "format": "date"
+              },
+              "isBusinessDay": {
+                "type": "boolean"
+              },
+              "isRecurrent": {
+                "type": "boolean"
               },
               "country": {
                 "oneOf": [
@@ -118,9 +125,6 @@
                   }
                 ],
                 "example": "string or id"
-              },
-              "isBusinessDay": {
-                "type": "boolean"
               },
               "state": {
                 "oneOf": [
@@ -169,6 +173,12 @@
                       "type": "string",
                       "format": "date"
                     },
+                    "isBusinessDay": {
+                      "type": "boolean"
+                    },
+                    "isRecurrent": {
+                      "type": "boolean"
+                    },
                     "country": {
                       "type": "object",
                       "properties": {
@@ -208,6 +218,12 @@
                                                 "type": "string",
                                                 "format": "date"
                                               },
+                                              "isBusinessDay": {
+                                                "type": "boolean"
+                                              },
+                                              "isRecurrent": {
+                                                "type": "boolean"
+                                              },
                                               "country": {
                                                 "type": "object",
                                                 "properties": {
@@ -224,9 +240,6 @@
                                                     }
                                                   }
                                                 }
-                                              },
-                                              "isBusinessDay": {
-                                                "type": "boolean"
                                               },
                                               "state": {
                                                 "type": "object",
@@ -835,9 +848,6 @@
                         }
                       }
                     },
-                    "isBusinessDay": {
-                      "type": "boolean"
-                    },
                     "state": {
                       "type": "object",
                       "properties": {
@@ -967,6 +977,12 @@
                     "type": "string",
                     "format": "date"
                   },
+                  "isBusinessDay": {
+                    "type": "boolean"
+                  },
+                  "isRecurrent": {
+                    "type": "boolean"
+                  },
                   "country": {
                     "type": "object",
                     "properties": {
@@ -1006,6 +1022,12 @@
                                               "type": "string",
                                               "format": "date"
                                             },
+                                            "isBusinessDay": {
+                                              "type": "boolean"
+                                            },
+                                            "isRecurrent": {
+                                              "type": "boolean"
+                                            },
                                             "country": {
                                               "type": "object",
                                               "properties": {
@@ -1022,9 +1044,6 @@
                                                   }
                                                 }
                                               }
-                                            },
-                                            "isBusinessDay": {
-                                              "type": "boolean"
                                             },
                                             "state": {
                                               "type": "object",
@@ -1633,9 +1652,6 @@
                       }
                     }
                   },
-                  "isBusinessDay": {
-                    "type": "boolean"
-                  },
                   "state": {
                     "type": "object",
                     "properties": {
@@ -1843,6 +1859,12 @@
                                                             "type": "string",
                                                             "format": "date"
                                                           },
+                                                          "isBusinessDay": {
+                                                            "type": "boolean"
+                                                          },
+                                                          "isRecurrent": {
+                                                            "type": "boolean"
+                                                          },
                                                           "country": {
                                                             "type": "object",
                                                             "properties": {
@@ -1859,9 +1881,6 @@
                                                                 }
                                                               }
                                                             }
-                                                          },
-                                                          "isBusinessDay": {
-                                                            "type": "boolean"
                                                           },
                                                           "state": {
                                                             "type": "object",
@@ -2620,6 +2639,12 @@
                                                           "type": "string",
                                                           "format": "date"
                                                         },
+                                                        "isBusinessDay": {
+                                                          "type": "boolean"
+                                                        },
+                                                        "isRecurrent": {
+                                                          "type": "boolean"
+                                                        },
                                                         "country": {
                                                           "type": "object",
                                                           "properties": {
@@ -2636,9 +2661,6 @@
                                                               }
                                                             }
                                                           }
-                                                        },
-                                                        "isBusinessDay": {
-                                                          "type": "boolean"
                                                         },
                                                         "state": {
                                                           "type": "object",
@@ -3396,6 +3418,12 @@
                                     "type": "string",
                                     "format": "date"
                                   },
+                                  "isBusinessDay": {
+                                    "type": "boolean"
+                                  },
+                                  "isRecurrent": {
+                                    "type": "boolean"
+                                  },
                                   "country": {
                                     "type": "object",
                                     "properties": {
@@ -3954,9 +3982,6 @@
                                       }
                                     }
                                   },
-                                  "isBusinessDay": {
-                                    "type": "boolean"
-                                  },
                                   "state": {
                                     "type": "object",
                                     "properties": {
@@ -4178,6 +4203,12 @@
                                 "date": {
                                   "type": "string",
                                   "format": "date"
+                                },
+                                "isBusinessDay": {
+                                  "type": "boolean"
+                                },
+                                "isRecurrent": {
+                                  "type": "boolean"
                                 },
                                 "country": {
                                   "type": "object",
@@ -4737,9 +4768,6 @@
                                     }
                                   }
                                 },
-                                "isBusinessDay": {
-                                  "type": "boolean"
-                                },
                                 "state": {
                                   "type": "object",
                                   "properties": {
@@ -5023,6 +5051,12 @@
                                                 "type": "string",
                                                 "format": "date"
                                               },
+                                              "isBusinessDay": {
+                                                "type": "boolean"
+                                              },
+                                              "isRecurrent": {
+                                                "type": "boolean"
+                                              },
                                               "country": {
                                                 "type": "object",
                                                 "properties": {
@@ -5039,9 +5073,6 @@
                                                     }
                                                   }
                                                 }
-                                              },
-                                              "isBusinessDay": {
-                                                "type": "boolean"
                                               },
                                               "state": {
                                                 "type": "object",
@@ -5823,6 +5854,12 @@
                                               "type": "string",
                                               "format": "date"
                                             },
+                                            "isBusinessDay": {
+                                              "type": "boolean"
+                                            },
+                                            "isRecurrent": {
+                                              "type": "boolean"
+                                            },
                                             "country": {
                                               "type": "object",
                                               "properties": {
@@ -5839,9 +5876,6 @@
                                                   }
                                                 }
                                               }
-                                            },
-                                            "isBusinessDay": {
-                                              "type": "boolean"
                                             },
                                             "state": {
                                               "type": "object",

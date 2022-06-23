@@ -20,15 +20,20 @@
       "type": "date",
       "required": true
     },
+    "isBusinessDay": {
+      "type": "boolean",
+      "required": true
+    },
+    "isRecurrent": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
     "country": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::country.country",
       "inversedBy": "celebrations"
-    },
-    "isBusinessDay": {
-      "type": "boolean",
-      "required": true
     },
     "state": {
       "type": "relation",

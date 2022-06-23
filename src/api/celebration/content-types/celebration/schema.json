@@ -41,6 +41,11 @@
       "relation": "manyToOne",
       "target": "api::city.city",
       "inversedBy": "celebrations"
+    },
+    "isRecurrent": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

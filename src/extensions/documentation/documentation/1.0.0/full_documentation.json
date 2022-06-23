@@ -14,7 +14,7 @@
       "name": "MIT",
       "url": "https://github.com/gabrielrufino/celebrations-api/blob/main/LICENSE"
     },
-    "x-generation-date": "2022-06-23T02:36:27.570Z"
+    "x-generation-date": "2022-06-23T02:40:29.999Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -97,7 +97,8 @@
             "required": [
               "name",
               "date",
-              "isBusinessDay"
+              "isBusinessDay",
+              "isRecurrent"
             ],
             "type": "object",
             "properties": {
@@ -143,6 +144,9 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "isRecurrent": {
+                "type": "boolean"
               }
             }
           }
@@ -710,6 +714,9 @@
                                                   }
                                                 }
                                               },
+                                              "isRecurrent": {
+                                                "type": "boolean"
+                                              },
                                               "createdAt": {
                                                 "type": "string",
                                                 "format": "date-time"
@@ -871,6 +878,9 @@
                           }
                         }
                       }
+                    },
+                    "isRecurrent": {
+                      "type": "boolean"
                     },
                     "createdAt": {
                       "type": "string",
@@ -1508,6 +1518,9 @@
                                                 }
                                               }
                                             },
+                                            "isRecurrent": {
+                                              "type": "boolean"
+                                            },
                                             "createdAt": {
                                               "type": "string",
                                               "format": "date-time"
@@ -1669,6 +1682,9 @@
                         }
                       }
                     }
+                  },
+                  "isRecurrent": {
+                    "type": "boolean"
                   },
                   "createdAt": {
                     "type": "string",
@@ -2234,6 +2250,9 @@
                                                                 }
                                                               }
                                                             }
+                                                          },
+                                                          "isRecurrent": {
+                                                            "type": "boolean"
                                                           },
                                                           "createdAt": {
                                                             "type": "string",
@@ -3011,6 +3030,9 @@
                                                               }
                                                             }
                                                           }
+                                                        },
+                                                        "isRecurrent": {
+                                                          "type": "boolean"
                                                         },
                                                         "createdAt": {
                                                           "type": "string",
@@ -3991,6 +4013,9 @@
                                       }
                                     }
                                   },
+                                  "isRecurrent": {
+                                    "type": "boolean"
+                                  },
                                   "createdAt": {
                                     "type": "string",
                                     "format": "date-time"
@@ -4774,6 +4799,9 @@
                                     }
                                   }
                                 },
+                                "isRecurrent": {
+                                  "type": "boolean"
+                                },
                                 "createdAt": {
                                   "type": "string",
                                   "format": "date-time"
@@ -5524,6 +5552,9 @@
                                                     }
                                                   }
                                                 }
+                                              },
+                                              "isRecurrent": {
+                                                "type": "boolean"
                                               },
                                               "createdAt": {
                                                 "type": "string",
@@ -6324,6 +6355,9 @@
                                                   }
                                                 }
                                               }
+                                            },
+                                            "isRecurrent": {
+                                              "type": "boolean"
                                             },
                                             "createdAt": {
                                               "type": "string",

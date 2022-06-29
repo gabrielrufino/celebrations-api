@@ -1,7 +1,7 @@
 {
   "name": "celebrations-api",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "API for celebrations & holidays",
   "scripts": {
     "develop": "strapi develop",
@@ -11,10 +11,10 @@
     "reinstall": "rimraf node_modules && npm ci"
   },
   "dependencies": {
-    "@strapi/plugin-documentation": "^4.2.0",
-    "@strapi/plugin-i18n": "^4.2.0",
-    "@strapi/plugin-users-permissions": "^4.2.0",
-    "@strapi/strapi": "^4.2.0",
+    "@strapi/plugin-documentation": "^4.2.2",
+    "@strapi/plugin-i18n": "^4.2.2",
+    "@strapi/plugin-users-permissions": "^4.2.2",
+    "@strapi/strapi": "^4.2.2",
     "better-sqlite3": "^7.5.3",
     "pg": "^8.7.3",
     "pm2": "^5.2.0",

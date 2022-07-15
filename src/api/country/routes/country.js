@@ -6,4 +6,6 @@
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::country.country');
+module.exports = createCoreRouter('api::country.country', {
+  only: ['find', 'findOne'],
+});

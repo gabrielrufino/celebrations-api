@@ -19,18 +19,13 @@ jobs:
           PROD_JWT_SECRET: ${{ secrets.PROD_JWT_SECRET }}
           PROD_PORT: ${{ secrets.PROD_PORT }}
           PROD_REPOSITORY_FOLDER: ${{ secrets.PROD_REPOSITORY_FOLDER }}
-          PROD_DATABASE_CLIENT: ${{ secrets.PROD_DATABASE_CLIENT }}
-          PROD_DATABASE_HOST: ${{ secrets.PROD_DATABASE_HOST }}
-          PROD_DATABASE_PORT: ${{ secrets.PROD_DATABASE_PORT }}
-          PROD_DATABASE_NAME: ${{ secrets.PROD_DATABASE_NAME }}
-          PROD_DATABASE_USERNAME: ${{ secrets.PROD_DATABASE_USERNAME }}
-          PROD_DATABASE_PASSWORD: ${{ secrets.PROD_DATABASE_PASSWORD }}
+          PROD_DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
         with:
           host: ${{ secrets.SERVER_SSH_HOST }}
           username: ${{ secrets.SERVER_SSH_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_SSH_PORT }}
-          envs: PROD_ADMIN_JWT_SECRET,PROD_API_TOKEN_SALT,PROD_APP_KEYS,PROD_HOST,PROD_JWT_SECRET,PROD_PORT,PROD_REPOSITORY_FOLDER,PROD_DATABASE_CLIENT,PROD_DATABASE_HOST,PROD_DATABASE_PORT,PROD_DATABASE_NAME,PROD_DATABASE_USERNAME,PROD_DATABASE_PASSWORD
+          envs: PROD_ADMIN_JWT_SECRET,PROD_API_TOKEN_SALT,PROD_APP_KEYS,PROD_HOST,PROD_JWT_SECRET,PROD_PORT,PROD_REPOSITORY_FOLDER,PROD_DATABASE_URL
           script: |
             if [ ! -d $PROD_REPOSITORY_FOLDER ]
             then
@@ -46,12 +41,7 @@ jobs:
             echo "HOST=$PROD_HOST" >> .env
             echo "JWT_SECRET=$PROD_JWT_SECRET" >> .env
             echo "PORT=$PROD_PORT" >> .env
-            echo "DATABASE_CLIENT=$PROD_DATABASE_CLIENT" >> .env
-            echo "DATABASE_HOST=$PROD_DATABASE_HOST" >> .env
-            echo "DATABASE_PORT=$PROD_DATABASE_PORT" >> .env
-            echo "DATABASE_NAME=$PROD_DATABASE_NAME" >> .env 
-            echo "DATABASE_USERNAME=$PROD_DATABASE_USERNAME" >> .env
-            echo "DATABASE_PASSWORD=$PROD_DATABASE_PASSWORD" >> .env
+            echo "DATABASE_URL=$PROD_DATABASE_URL" >> .env
             npm ci --production --silent
             NODE_ENV=production npm run build 
             npx pm2 startOrReload ecosystem.config.js

@@ -11,10 +11,10 @@
     "reinstall": "rimraf node_modules && npm ci"
   },
   "dependencies": {
-    "@strapi/plugin-documentation": "^4.2.3",
-    "@strapi/plugin-i18n": "^4.2.3",
-    "@strapi/plugin-users-permissions": "^4.2.3",
-    "@strapi/strapi": "^4.2.3",
+    "@strapi/plugin-documentation": "^4.3.0",
+    "@strapi/plugin-i18n": "^4.3.0",
+    "@strapi/plugin-users-permissions": "^4.3.0",
+    "@strapi/strapi": "^4.3.0",
     "better-sqlite3": "^7.6.2",
     "pg": "^8.7.3",
     "pm2": "^5.2.0",

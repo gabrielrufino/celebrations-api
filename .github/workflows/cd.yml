@@ -18,6 +18,7 @@ jobs:
           PROD_HOST: ${{ secrets.PROD_HOST }}
           PROD_JWT_SECRET: ${{ secrets.PROD_JWT_SECRET }}
           PROD_PORT: ${{ secrets.PROD_PORT }}
+          PROD_URL: ${{ secrets.PROD_URL }}
           PROD_REPOSITORY_FOLDER: ${{ secrets.PROD_REPOSITORY_FOLDER }}
           PROD_DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
         with:
@@ -25,7 +26,7 @@ jobs:
           username: ${{ secrets.SERVER_SSH_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_SSH_PORT }}
-          envs: PROD_ADMIN_JWT_SECRET,PROD_API_TOKEN_SALT,PROD_APP_KEYS,PROD_HOST,PROD_JWT_SECRET,PROD_PORT,PROD_REPOSITORY_FOLDER,PROD_DATABASE_URL
+          envs: PROD_ADMIN_JWT_SECRET,PROD_API_TOKEN_SALT,PROD_APP_KEYS,PROD_HOST,PROD_JWT_SECRET,PROD_PORT,PROD_URL,PROD_REPOSITORY_FOLDER,PROD_DATABASE_URL
           script: |
             if [ ! -d $PROD_REPOSITORY_FOLDER ]
             then
@@ -38,9 +39,10 @@ jobs:
             echo "ADMIN_JWT_SECRET=$PROD_ADMIN_JWT_SECRET" > .env
             echo "API_TOKEN_SALT=$PROD_API_TOKEN_SALT" >> .env
             echo "APP_KEYS=$PROD_APP_KEYS" >> .env
-            echo "HOST=$PROD_HOST" >> .env
             echo "JWT_SECRET=$PROD_JWT_SECRET" >> .env
+            echo "HOST=$PROD_HOST" >> .env
             echo "PORT=$PROD_PORT" >> .env
+            echo "URL=$PROD_URL" >> .env
             echo "DATABASE_URL=$PROD_DATABASE_URL" >> .env
             npm ci --production --silent
             NODE_ENV=production npm run build 

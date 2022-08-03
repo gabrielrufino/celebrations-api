@@ -1,5 +1,6 @@
-<p align="center"><img width="250px" src="./docs/_media/logo.png"></p>
+<p align="center">
+  <img width="250px" src="./docs/_media/logo.png">
+  <h1 align="center">Celebrations API 🗓️🎉</h1>
+</p>
 
-# Celebrations API 🗓️🎉
-
-API for celebrations & holidays.
+> API for celebrations & holidays. [More here](https://docs.celebrationsapi.dev)

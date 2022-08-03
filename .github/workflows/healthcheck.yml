@@ -11,7 +11,7 @@ jobs:
       - name: Check the server URL
         uses: jtalk/url-health-check-action@v2
         with:
-          url: ${{ secrets.PROD_HOST }}:${{ secrets.PROD_PORT }}/_health
+          url: ${{ secrets.PROD_URL }}/_health
       - name: Telegram Notify
         if: ${{ failure() }}
         uses: appleboy/telegram-action@master

@@ -36,7 +36,7 @@ Let's get quickly all brazilian celebrations
 
 ### Getting brazilian celebrations
 
-> **GET** `/api/celebrations?Country=BR`
+> **GET** `/api/celebrations?filters[country][code][$eq]=BR`
 
 **Headers:**
 ```json

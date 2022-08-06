@@ -22,12 +22,16 @@ jobs:
           PROD_URL: ${{ secrets.PROD_URL }}
           PROD_REPOSITORY_FOLDER: ${{ secrets.PROD_REPOSITORY_FOLDER }}
           PROD_DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
+          PROD_SMTP_HOST: ${{ secrets.PROD_SMTP_HOST }}
+          PROD_SMTP_PORT: ${{ secrets.PROD_SMTP_PORT }}
+          PROD_SMTP_USERNAME: ${{ secrets.PROD_SMTP_USERNAME }}
+          PROD_SMTP_PASSWORD: ${{ secrets.PROD_SMTP_PASSWORD }}
         with:
           host: ${{ secrets.SERVER_SSH_HOST }}
           username: ${{ secrets.SERVER_SSH_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_SSH_PORT }}
-          envs: PROD_ADMIN_JWT_SECRET,PROD_API_TOKEN_SALT,PROD_APP_KEYS,PROD_HOST,PROD_JWT_SECRET,PROD_PORT,PROD_URL,PROD_REPOSITORY_FOLDER,PROD_DATABASE_URL
+          envs: PROD_ADMIN_JWT_SECRET,PROD_API_TOKEN_SALT,PROD_APP_KEYS,PROD_HOST,PROD_JWT_SECRET,PROD_PORT,PROD_URL,PROD_REPOSITORY_FOLDER,PROD_DATABASE_URL,PROD_SMTP_HOST,PROD_SMTP_PORT,PROD_SMTP_USERNAME,PROD_SMTP_PASSWORD
           script: |
             if [ ! -d $PROD_REPOSITORY_FOLDER ]
             then
@@ -45,6 +49,10 @@ jobs:
             echo "PORT=$PROD_PORT" >> .env
             echo "URL=$PROD_URL" >> .env
             echo "DATABASE_URL=$PROD_DATABASE_URL" >> .env
+            echo "SMTP_HOST=$PROD_SMTP_HOST"
+            echo "SMTP_PORT=$PROD_SMTP_PORT"
+            echo "SMTP_USERNAME=$PROD_SMTP_USERNAME"
+            echo "SMTP_PASSWORD=$PROD_SMTP_PASSWORD"
             npm ci --production --silent
             NODE_ENV=production npm run build 
             npx pm2 startOrReload ecosystem.config.js

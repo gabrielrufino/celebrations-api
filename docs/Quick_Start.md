@@ -15,6 +15,10 @@ Let's get quickly all brazilian celebrations
 }
 ```
 
+### Confirming email
+
+Search for the confirmation email in your inbox and click the confirmation link.
+
 ### Getting token
 
 > **POST** `/api/auth/local`

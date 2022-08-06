@@ -11,5 +11,9 @@
       "name": "MIT",
       "url": "https://github.com/gabrielrufino/celebrations-api/blob/main/LICENSE"
     }
+  },
+  "externalDocs": {
+    "description": "Find out more",
+    "url": "https://docs.celebrationsapi.dev"
   }
 }

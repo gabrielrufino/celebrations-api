@@ -1,0 +1,27 @@
+name: Generate CSV
+
+on:
+  - push
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup deno
+        uses: denoland/setup-deno@main
+        with:
+          deno-version: v1.10.x
+      - name: Check out repo
+        uses: actions/checkout@v2
+      - name: Fetch data
+        uses: githubocto/flat@v3
+        with:
+          sql_connstring: ${{ secrets.PROD_DATABASE_URL }}
+          sql_queryfile: .github/scripts/csv.sql
+          downloaded_filename: celebrations.csv
+      - name: Upload CSV
+        uses: actions/upload-artifact@v3
+        with:
+          name: celebrations
+          path: celebrations.csv
+

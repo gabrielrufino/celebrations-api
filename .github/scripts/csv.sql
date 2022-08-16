@@ -12,8 +12,7 @@ SELECT
 	cities.name AS "City",
 	CASE
     WHEN celebrations.is_recurrent THEN 'Y'
-		WHEN celebrations.is_recurrent THEN 'N'
-    ELSE null
+    ELSE 'N'
   END AS "Recurrent"
 FROM public.celebrations
 LEFT JOIN public.celebrations_country_links ON celebrations_country_links.celebration_id = celebrations.id

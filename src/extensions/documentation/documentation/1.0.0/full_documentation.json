@@ -14,7 +14,7 @@
       "name": "MIT",
       "url": "https://github.com/gabrielrufino/celebrations-api/blob/main/LICENSE"
     },
-    "x-generation-date": "2022-08-06T13:31:38.347Z"
+    "x-generation-date": "2022-08-16T00:06:02.788Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -34,7 +34,7 @@
   ],
   "externalDocs": {
     "description": "Find out more",
-    "url": "https://docs.strapi.io/developer-docs/latest/getting-started/introduction.html"
+    "url": "https://docs.celebrationsapi.dev"
   },
   "security": [
     {
@@ -15118,6 +15118,60 @@
                 "password": "Test1234",
                 "passwordConfirmation": "Test1234",
                 "code": "zertyoaizndoianzodianzdonaizdoinaozdnia"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns a jwt token and user info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Users-Permissions-UserRegistration"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/change-password": {
+      "post": {
+        "tags": [
+          "Users-Permissions - Auth"
+        ],
+        "summary": "Update user's own password",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "currentPassword": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "passwordConfirmation": {
+                    "required": true,
+                    "type": "string"
+                  }
+                }
               }
             }
           }

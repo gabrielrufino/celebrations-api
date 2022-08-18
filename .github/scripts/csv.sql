@@ -21,6 +21,7 @@ LEFT JOIN public.celebrations_state_links ON celebrations_state_links.celebratio
 LEFT JOIN public.states ON states.id = celebrations_state_links.state_id
 LEFT JOIN public.celebrations_city_links ON celebrations_city_links.celebration_id = celebrations.id
 LEFT JOIN public.cities ON cities.id = celebrations_city_links.city_id
+WHERE celebrations.published_at IS NOT NULL
 ORDER BY
 	countries.name NULLS FIRST,
 	states.name NULLS FIRST,

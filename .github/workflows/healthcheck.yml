@@ -3,6 +3,7 @@ name: Healthcheck
 on:
   schedule:
     - cron: '* * * * *'
+  workflow_dispatch:
 
 jobs:
   server:

@@ -1,14 +1,14 @@
 {
   "name": "celebrations-api",
   "private": true,
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "API for celebrations & holidays",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "reinstall": "rimraf node_modules && npm ci",
+    "reinstall": "npx rimraf node_modules && npm ci",
     "docs": "npx docsify serve docs"
   },
   "dependencies": {

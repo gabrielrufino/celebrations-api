@@ -12,11 +12,11 @@
     "docs": "npx docsify serve docs"
   },
   "dependencies": {
-    "@strapi/plugin-documentation": "^4.3.6",
-    "@strapi/plugin-i18n": "^4.3.6",
-    "@strapi/plugin-users-permissions": "^4.3.6",
-    "@strapi/provider-email-nodemailer": "^4.3.6",
-    "@strapi/strapi": "^4.3.6",
+    "@strapi/plugin-documentation": "^4.3.9",
+    "@strapi/plugin-i18n": "^4.3.9",
+    "@strapi/plugin-users-permissions": "^4.3.9",
+    "@strapi/provider-email-nodemailer": "^4.3.9",
+    "@strapi/strapi": "^4.3.9",
     "pg": "^8.8.0",
     "pm2": "^5.2.0",
     "strapi-plugin-duplicate-button": "^1.0.4",

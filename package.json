@@ -21,7 +21,8 @@
     "pm2": "^5.2.0",
     "strapi-plugin-duplicate-button": "^1.0.4",
     "strapi-plugin-entity-relationship-chart": "^4.1.0",
-    "strapi-plugin-notes": "^1.0.1"
+    "strapi-plugin-notes": "^1.0.1",
+    "strapi-prometheus": "^0.6.3"
   },
   "author": {
     "name": "Gabriel Rufino",

@@ -20,4 +20,13 @@ module.exports = ({ env }) => ({
   'entity-notes': {
 		enabled: true,
 	},
+  'strapi-prometheus': {
+    enabled: true,
+    config: {
+      prefix: '',
+      fullURL: false,
+      includeQuery: false,
+      defaultMetrics: true,
+    }
+  }
 });

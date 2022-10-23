@@ -14,7 +14,7 @@
       "name": "MIT",
       "url": "https://github.com/gabrielrufino/celebrations-api/blob/main/LICENSE"
     },
-    "x-generation-date": "2022-10-04T11:43:14.556Z"
+    "x-generation-date": "2022-10-23T14:44:23.938Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -125,6 +125,9 @@
                             "type": "string"
                           },
                           "name": {
+                            "type": "string"
+                          },
+                          "flag": {
                             "type": "string"
                           },
                           "celebrations": {
@@ -900,6 +903,9 @@
                             "type": "string"
                           },
                           "name": {
+                            "type": "string"
+                          },
+                          "flag": {
                             "type": "string"
                           },
                           "celebrations": {
@@ -1710,6 +1716,9 @@
                           "name": {
                             "type": "string"
                           },
+                          "flag": {
+                            "type": "string"
+                          },
                           "celebrations": {
                             "type": "object",
                             "properties": {
@@ -2483,6 +2492,9 @@
                             "type": "string"
                           },
                           "name": {
+                            "type": "string"
+                          },
+                          "flag": {
                             "type": "string"
                           },
                           "celebrations": {
@@ -3278,6 +3290,9 @@
                                       "name": {
                                         "type": "string"
                                       },
+                                      "flag": {
+                                        "type": "string"
+                                      },
                                       "celebrations": {
                                         "type": "object",
                                         "properties": {
@@ -4027,6 +4042,9 @@
                                         "type": "string"
                                       },
                                       "name": {
+                                        "type": "string"
+                                      },
+                                      "flag": {
                                         "type": "string"
                                       },
                                       "celebrations": {
@@ -4813,6 +4831,9 @@
                                       "name": {
                                         "type": "string"
                                       },
+                                      "flag": {
+                                        "type": "string"
+                                      },
                                       "celebrations": {
                                         "type": "object",
                                         "properties": {
@@ -5564,6 +5585,9 @@
                                       "name": {
                                         "type": "string"
                                       },
+                                      "flag": {
+                                        "type": "string"
+                                      },
                                       "celebrations": {
                                         "type": "object",
                                         "properties": {
@@ -6292,6 +6316,9 @@
               "name": {
                 "type": "string"
               },
+              "flag": {
+                "type": "string"
+              },
               "celebrations": {
                 "type": "object",
                 "properties": {
@@ -6335,6 +6362,9 @@
                                           "type": "string"
                                         },
                                         "name": {
+                                          "type": "string"
+                                        },
+                                        "flag": {
                                           "type": "string"
                                         },
                                         "celebrations": {
@@ -7049,6 +7079,9 @@
               "name": {
                 "type": "string"
               },
+              "flag": {
+                "type": "string"
+              },
               "celebrations": {
                 "type": "object",
                 "properties": {
@@ -7092,6 +7125,9 @@
                                           "type": "string"
                                         },
                                         "name": {
+                                          "type": "string"
+                                        },
+                                        "flag": {
                                           "type": "string"
                                         },
                                         "celebrations": {
@@ -7839,6 +7875,9 @@
               "name": {
                 "type": "string"
               },
+              "flag": {
+                "type": "string"
+              },
               "celebrations": {
                 "type": "object",
                 "properties": {
@@ -7882,6 +7921,9 @@
                                           "type": "string"
                                         },
                                         "name": {
+                                          "type": "string"
+                                        },
+                                        "flag": {
                                           "type": "string"
                                         },
                                         "celebrations": {
@@ -8596,6 +8638,9 @@
               "name": {
                 "type": "string"
               },
+              "flag": {
+                "type": "string"
+              },
               "celebrations": {
                 "type": "object",
                 "properties": {
@@ -8639,6 +8684,9 @@
                                           "type": "string"
                                         },
                                         "name": {
+                                          "type": "string"
+                                        },
+                                        "flag": {
                                           "type": "string"
                                         },
                                         "celebrations": {
@@ -9379,6 +9427,9 @@
                             "type": "string"
                           },
                           "name": {
+                            "type": "string"
+                          },
+                          "flag": {
                             "type": "string"
                           },
                           "celebrations": {
@@ -10153,6 +10204,9 @@
                             "type": "string"
                           },
                           "name": {
+                            "type": "string"
+                          },
+                          "flag": {
                             "type": "string"
                           },
                           "celebrations": {
@@ -10962,6 +11016,9 @@
                           "name": {
                             "type": "string"
                           },
+                          "flag": {
+                            "type": "string"
+                          },
                           "celebrations": {
                             "type": "object",
                             "properties": {
@@ -11734,6 +11791,9 @@
                             "type": "string"
                           },
                           "name": {
+                            "type": "string"
+                          },
+                          "flag": {
                             "type": "string"
                           },
                           "celebrations": {

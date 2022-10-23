@@ -4,7 +4,8 @@
   "info": {
     "singularName": "country",
     "pluralName": "countries",
-    "displayName": "Country"
+    "displayName": "Country",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,9 @@
       "type": "string",
       "unique": true,
       "required": true
+    },
+    "flag": {
+      "type": "string"
     },
     "celebrations": {
       "type": "relation",

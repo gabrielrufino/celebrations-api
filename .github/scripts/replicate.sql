@@ -19,7 +19,8 @@ BEGIN
     LEFT JOIN public.states ON states.id = celebrations_state_links.state_id
     LEFT JOIN public.celebrations_city_links ON celebrations_city_links.celebration_id = celebrations.id
     LEFT JOIN public.cities ON cities.id = celebrations_city_links.city_id
-    WHERE celebrations.is_recurrent = true
+    WHERE date_part('year', celebrations.date) = date_part('year', current_date)
+      AND celebrations.is_recurrent = true
       AND celebrations.published_at IS NOT NULL
   )
   LOOP

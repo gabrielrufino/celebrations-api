@@ -19,7 +19,8 @@ BEGIN
     LEFT JOIN public.states ON states.id = celebrations_state_links.state_id
     LEFT JOIN public.celebrations_city_links ON celebrations_city_links.celebration_id = celebrations.id
     LEFT JOIN public.cities ON cities.id = celebrations_city_links.city_id
-    WHERE celebrations.is_recurrent = true
+    WHERE date_part('year', celebrations.date) = date_part('year', current_date)
+      AND celebrations.is_recurrent = true
       AND celebrations.published_at IS NOT NULL
   )
   LOOP
@@ -35,7 +36,7 @@ BEGIN
       LEFT JOIN public.cities ON cities.id = celebrations_city_links.city_id
       WHERE celebrations.name = r.name
         AND celebrations.date = next_date
-        AND celebrations.is_business_day = r.is_business_day
+        AND coalesce(celebrations.is_business_day::text, '') = coalesce(r.is_business_day::text, '')
         AND coalesce(countries.id::text, '') = coalesce(r.country_id::text, '')
         AND coalesce(states.id::text, '') = coalesce(r.state_id::text, '')
         AND coalesce(cities.id::text, '') = coalesce(r.city_id::text, '')

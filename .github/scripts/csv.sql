@@ -2,18 +2,18 @@ SELECT
 	celebrations.name AS "Name",
 	to_char(celebrations.date, 'YYYY-MM-DD') AS "Date",
 	CASE
-    WHEN celebrations.is_business_day = true THEN 'Y'
+		WHEN celebrations.is_business_day = true THEN 'Y'
 		WHEN celebrations.is_business_day = false THEN 'N'
-    ELSE null
-  END AS "Business day",
+		ELSE null
+	END AS "Business day",
 	countries.name AS "Country",
 	countries.code AS "Country code",
 	states.name AS "State",
 	cities.name AS "City",
 	CASE
-    WHEN celebrations.is_recurrent THEN 'Y'
-    ELSE 'N'
-  END AS "Recurrent"
+		WHEN celebrations.is_recurrent THEN 'Y'
+		ELSE 'N'
+	END AS "Recurrent"
 FROM public.celebrations
 LEFT JOIN public.celebrations_country_links ON celebrations_country_links.celebration_id = celebrations.id
 LEFT JOIN public.countries ON countries.id = celebrations_country_links.country_id

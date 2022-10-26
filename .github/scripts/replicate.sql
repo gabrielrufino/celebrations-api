@@ -35,7 +35,7 @@ BEGIN
       LEFT JOIN public.cities ON cities.id = celebrations_city_links.city_id
       WHERE celebrations.name = r.name
         AND celebrations.date = next_date
-        AND celebrations.is_business_day = r.is_business_day
+        AND coalesce(celebrations.is_business_day::text, '') = coalesce(r.is_business_day::text, '')
         AND coalesce(countries.id::text, '') = coalesce(r.country_id::text, '')
         AND coalesce(states.id::text, '') = coalesce(r.state_id::text, '')
         AND coalesce(cities.id::text, '') = coalesce(r.city_id::text, '')

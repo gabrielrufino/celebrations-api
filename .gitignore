@@ -70,7 +70,7 @@ $RECYCLE.BIN/
 *.sql
 *.sqlite
 *.sqlite3
-!.github/scripts/csv.sql
+!.github/scripts/*.sql
 
 
 ############################

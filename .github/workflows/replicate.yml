@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          apt update
-          apt install --yes --no-install-recommends postgresql-client
+          sudo apt update
+          sudo apt install --yes --no-install-recommends postgresql-client
           psql -Atx ${{ secrets.PROD_DATABASE_URL }} -c "$(cat .github/scripts/replicate.sql)"

@@ -9,7 +9,9 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: azure/sql-action@v2
+      - uses: actions/checkout@v2.3.2
+      - uses: azure/postgresql@v1
         with:
           connection-string: ${{ secrets.PROD_DATABASE_URL }}
-          path: .github/scripts/replicate.sql
+          server-name: Server
+          plsql-file: .github/scripts/replicate.sql

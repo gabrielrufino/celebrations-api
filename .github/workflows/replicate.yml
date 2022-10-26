@@ -1,0 +1,15 @@
+name: Replicate celebrations
+
+on:
+  schedule:
+    - cron: '0 0 1 11 *'
+  workflow_dispatch:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: azure/sql-action@v2
+        with:
+          connection-string: ${{ secrets.PROD_DATABASE_URL }}
+          path: .github/scripts/replicate.sql

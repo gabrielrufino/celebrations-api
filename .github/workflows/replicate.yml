@@ -9,9 +9,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.2
-      - uses: azure/postgresql@v1
-        with:
-          connection-string: ${{ secrets.PROD_DATABASE_URL }}
-          server-name: Server
-          plsql-file: .github/scripts/replicate.sql
+      - run: |
+          apt update
+          apt install --yes --no-install-recommends postgresql-client
+          psql -Atx ${{ secrets.PROD_DATABASE_URL }} -c "$(cat .github/scripts/replicate.sql)"

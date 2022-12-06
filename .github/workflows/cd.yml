@@ -54,7 +54,8 @@ jobs:
             echo "SMTP_USERNAME=$PROD_SMTP_USERNAME" >> .env
             echo "SMTP_PASSWORD=$PROD_SMTP_PASSWORD" >> .env
             npm ci --production --silent
-            NODE_ENV=production npm run build 
+            NODE_ENV=production npm run build
+            rm -Rf ~/.pm2
             npx pm2 startOrReload ecosystem.config.js
       - name: Telegram Notify
         uses: appleboy/telegram-action@master

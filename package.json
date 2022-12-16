@@ -5,7 +5,7 @@
   "description": "API for celebrations & holidays",
   "scripts": {
     "develop": "strapi develop",
-    "start": "strapi start",
+    "start": "NODE_ENV=production strapi start",
     "build": "strapi build",
     "strapi": "strapi",
     "reinstall": "npx rimraf node_modules && npm ci",

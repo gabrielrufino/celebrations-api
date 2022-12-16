@@ -18,7 +18,6 @@
     "@strapi/provider-email-nodemailer": "^4.5.4",
     "@strapi/strapi": "^4.5.4",
     "pg": "^8.8.0",
-    "pm2": "^5.2.2",
     "strapi-plugin-duplicate-button": "^1.0.4",
     "strapi-plugin-entity-relationship-chart": "^4.1.0",
     "strapi-plugin-notes": "^1.0.1",

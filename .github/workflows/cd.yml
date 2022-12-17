@@ -68,7 +68,6 @@ jobs:
               touch .env
             fi
             cd $PROD_REPOSITORY_FOLDER
-            git restore .
             git pull origin main
             echo "ADMIN_JWT_SECRET=$PROD_ADMIN_JWT_SECRET" > .env
             echo "API_TOKEN_SALT=$PROD_API_TOKEN_SALT" >> .env
@@ -83,6 +82,7 @@ jobs:
             echo "SMTP_USERNAME=$PROD_SMTP_USERNAME" >> .env
             echo "SMTP_PASSWORD=$PROD_SMTP_PASSWORD" >> .env
             docker compose up -d --build
+            rm .env
       - name: Telegram Notify
         uses: appleboy/telegram-action@master
         with:

@@ -3,4 +3,5 @@
 .eslint*
 .gitignore
 docs
+node_modules
 README.md

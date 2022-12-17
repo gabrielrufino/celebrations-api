@@ -1,0 +1,6 @@
+.editorconfig
+.env.example
+.eslint*
+.gitignore
+docs
+README.md

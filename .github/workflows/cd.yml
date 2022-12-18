@@ -49,7 +49,6 @@ jobs:
           PROD_JWT_SECRET: ${{ secrets.PROD_JWT_SECRET }}
           PROD_PORT: ${{ secrets.PROD_PORT }}
           PROD_URL: ${{ secrets.PROD_URL }}
-          PROD_REPOSITORY_FOLDER: ${{ secrets.PROD_REPOSITORY_FOLDER }}
           PROD_DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
           PROD_SMTP_HOST: ${{ secrets.PROD_SMTP_HOST }}
           PROD_SMTP_PORT: ${{ secrets.PROD_SMTP_PORT }}
@@ -60,8 +59,9 @@ jobs:
           username: ${{ secrets.SERVER_SSH_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_SSH_PORT }}
-          envs: PROD_ADMIN_JWT_SECRET,PROD_API_TOKEN_SALT,PROD_APP_KEYS,PROD_HOST,PROD_JWT_SECRET,PROD_PORT,PROD_URL,PROD_REPOSITORY_FOLDER,PROD_DATABASE_URL,PROD_SMTP_HOST,PROD_SMTP_PORT,PROD_SMTP_USERNAME,PROD_SMTP_PASSWORD
+          envs: PROD_ADMIN_JWT_SECRET,PROD_API_TOKEN_SALT,PROD_APP_KEYS,PROD_HOST,PROD_JWT_SECRET,PROD_PORT,PROD_URL,PROD_DATABASE_URL,PROD_SMTP_HOST,PROD_SMTP_PORT,PROD_SMTP_USERNAME,PROD_SMTP_PASSWORD
           script: |
+            PROD_REPOSITORY_FOLDER=/var/www/celebrations-api
             if [ ! -d $PROD_REPOSITORY_FOLDER ]
             then
               git clone https://github.com/gabrielrufino/celebrations-api.git $PROD_REPOSITORY_FOLDER

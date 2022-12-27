@@ -79,6 +79,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_SSH_PORT }}
           envs: PROD_ADMIN_JWT_SECRET,PROD_API_TOKEN_SALT,PROD_APP_KEYS,PROD_HOST,PROD_JWT_SECRET,PROD_PORT,PROD_URL,PROD_DATABASE_URL,PROD_SMTP_HOST,PROD_SMTP_PORT,PROD_SMTP_USERNAME,PROD_SMTP_PASSWORD
+          script_stop: true
           script: |
             PROD_REPOSITORY_FOLDER=/var/www/celebrations-api
             if [ ! -d $PROD_REPOSITORY_FOLDER ]
@@ -100,7 +101,10 @@ jobs:
             echo "SMTP_PORT=$PROD_SMTP_PORT" >> .env
             echo "SMTP_USERNAME=$PROD_SMTP_USERNAME" >> .env
             echo "SMTP_PASSWORD=$PROD_SMTP_PASSWORD" >> .env
-            docker compose up -d --build
+            docker compose up blue -d --build
+            timeout 300 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:1336/_health)" != "204" ]]; do sleep 5; done' || false
+            docker compose up green -d --build
+            docker compose stop blue
             rm .env
       - name: Telegram Notify
         uses: appleboy/telegram-action@master

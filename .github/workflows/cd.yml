@@ -35,6 +35,24 @@ jobs:
               apt update
               apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
             fi
+  git:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup git using SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_SSH_HOST }}
+          username: ${{ secrets.SERVER_SSH_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: ${{ secrets.SERVER_SSH_PORT }}
+          script: |
+            if [ ! $(which git) ]
+            then
+              apt update
+              apt install git -y
+              git config --global pull.ff only
+            fi
   nginx:
     runs-on: ubuntu-latest
 
@@ -56,6 +74,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - docker
+      - git
       - nginx
     steps:
       - name: Deploy using SSH

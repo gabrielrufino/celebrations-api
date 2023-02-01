@@ -124,6 +124,7 @@ jobs:
               && docker compose up green -d --build
             docker compose stop blue
             rm .env
+            docker image prune -a -f
       - name: Telegram Notify
         uses: appleboy/telegram-action@master
         with:

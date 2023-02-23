@@ -90,6 +90,7 @@ jobs:
           password: ${{ secrets.SERVER_SSH_PASSWORD }}
           source: celebrations-api.tar
           target: /var/www/celebrations-api/
+          tar_tmp_path: /var/www/celebrations-api/
   deploy:
     runs-on: ubuntu-latest
     needs:

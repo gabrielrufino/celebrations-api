@@ -1,11 +1,23 @@
 name: Continuous Delivery
 
 on:
-  push:
-    branches: [ main ]
+  workflow_run:
+    workflows: ['Continuous Integration']
+    types:
+      - completed
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - id: extract
+        run: echo version=$(npm pkg get version | sed 's/"//g') >> "$GITHUB_OUTPUT"
+    outputs:
+      version:  ${{ steps.extract.outputs.version }}
   docker:
     runs-on: ubuntu-latest
 
@@ -35,24 +47,6 @@ jobs:
               apt update
               apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
             fi
-  git:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Setup git using SSH
-        uses: appleboy/ssh-action@v0.1.7
-        with:
-          host: ${{ secrets.SERVER_SSH_HOST }}
-          port: ${{ secrets.SERVER_SSH_PORT }}
-          username: ${{ secrets.SERVER_SSH_USER }}
-          password: ${{ secrets.SERVER_SSH_PASSWORD }}
-          script: |
-            if [ ! $(which git) ]
-            then
-              apt update
-              apt install git -y
-              git config --global pull.ff only
-            fi
   nginx:
     runs-on: ubuntu-latest
 
@@ -70,16 +64,43 @@ jobs:
               apt update
               apt install nginx -y
             fi
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - version
+    env:
+      VERSION: ${{ needs.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          docker image build \
+            -t celebrations-api:latest \
+            -t celebrations-api:$VERSION \
+            .
+      - run: |
+          docker image save \
+            -o celebrations-api.tar \
+            celebrations-api:latest \
+            celebrations-api:$VERSION
+      - uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SERVER_SSH_HOST }}
+          port: ${{ secrets.SERVER_SSH_PORT }}
+          username: ${{ secrets.SERVER_SSH_USER }}
+          password: ${{ secrets.SERVER_SSH_PASSWORD }}
+          source: celebrations-api.tar
+          target: /var/www/celebrations-api/celebrations-api.tar
   deploy:
     runs-on: ubuntu-latest
     needs:
+      - build
       - docker
-      - git
       - nginx
     steps:
       - name: Deploy using SSH
         uses: appleboy/ssh-action@v0.1.7
         env:
+          VERSION: ${{ needs.version.outputs.version }}
           PROD_ADMIN_JWT_SECRET: ${{ secrets.PROD_ADMIN_JWT_SECRET }}
           PROD_API_TOKEN_SALT: ${{ secrets.PROD_API_TOKEN_SALT }}
           PROD_APP_KEYS: ${{ secrets.PROD_APP_KEYS }}
@@ -97,17 +118,19 @@ jobs:
           port: ${{ secrets.SERVER_SSH_PORT }}
           username: ${{ secrets.SERVER_SSH_USER }}
           password: ${{ secrets.SERVER_SSH_PASSWORD }}
-          envs: PROD_ADMIN_JWT_SECRET,PROD_API_TOKEN_SALT,PROD_APP_KEYS,PROD_HOST,PROD_JWT_SECRET,PROD_PORT,PROD_URL,PROD_DATABASE_URL,PROD_SMTP_HOST,PROD_SMTP_PORT,PROD_SMTP_USERNAME,PROD_SMTP_PASSWORD
+          envs: VERSION,PROD_ADMIN_JWT_SECRET,PROD_API_TOKEN_SALT,PROD_APP_KEYS,PROD_HOST,PROD_JWT_SECRET,PROD_PORT,PROD_URL,PROD_DATABASE_URL,PROD_SMTP_HOST,PROD_SMTP_PORT,PROD_SMTP_USERNAME,PROD_SMTP_PASSWORD
           script: |
             PROD_REPOSITORY_FOLDER=/var/www/celebrations-api
             if [ ! -d $PROD_REPOSITORY_FOLDER ]
             then
-              git clone https://github.com/gabrielrufino/celebrations-api.git $PROD_REPOSITORY_FOLDER
-              touch .env
+              mkdir -p $PROD_REPOSITORY_FOLDER
             fi
             cd $PROD_REPOSITORY_FOLDER
-            git pull origin main
-            echo "ADMIN_JWT_SECRET=$PROD_ADMIN_JWT_SECRET" > .env
+            docker load -i celebrations-api.tar
+            rm celebrations-api.tar
+            wget -O docker-compose.yml https://raw.githubusercontent.com/gabrielrufino/celebrations-api/main/.deploy/docker-compose.yml
+            echo "IMAGE_VERSION=$VERSION" > .env
+            echo "ADMIN_JWT_SECRET=$PROD_ADMIN_JWT_SECRET" >> .env
             echo "API_TOKEN_SALT=$PROD_API_TOKEN_SALT" >> .env
             echo "APP_KEYS=$PROD_APP_KEYS" >> .env
             echo "JWT_SECRET=$PROD_JWT_SECRET" >> .env
@@ -119,9 +142,9 @@ jobs:
             echo "SMTP_PORT=$PROD_SMTP_PORT" >> .env
             echo "SMTP_USERNAME=$PROD_SMTP_USERNAME" >> .env
             echo "SMTP_PASSWORD=$PROD_SMTP_PASSWORD" >> .env
-            docker compose up blue -d --build
+            docker compose up blue -d
             timeout 300 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:1336/_health)" != "204" ]]; do sleep 5; done' || false \
-              && docker compose up green -d --build
+              && docker compose up green -d
             docker compose stop blue
             rm .env
             docker image prune -a -f

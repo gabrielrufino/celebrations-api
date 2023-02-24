@@ -72,6 +72,8 @@ jobs:
       VERSION: ${{ needs.version.outputs.version }}
     steps:
       - uses: actions/checkout@v3
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
       - run: |
           docker image build \
             -t celebrations-api:latest \
@@ -82,7 +84,7 @@ jobs:
             -o celebrations-api.tar \
             celebrations-api:latest \
             celebrations-api:$VERSION
-      - uses: appleboy/scp-action@master
+      - uses: appleboy/scp-action@v0.1.3
         with:
           host: ${{ secrets.SERVER_SSH_HOST }}
           port: ${{ secrets.SERVER_SSH_PORT }}

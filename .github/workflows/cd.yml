@@ -131,7 +131,7 @@ jobs:
             cd $PROD_REPOSITORY_FOLDER
             docker load -i celebrations-api.tar
             rm celebrations-api.tar
-            wget -O docker-compose.yml https://raw.githubusercontent.com/gabrielrufino/celebrations-api/main/.deploy/docker-compose.yml
+            wget -O docker-compose.yml https://raw.githubusercontent.com/gabrielrufino/celebrations-api/main/deploy/docker-compose.yml
             echo "IMAGE_VERSION=$VERSION" > .env
             echo "ADMIN_JWT_SECRET=$PROD_ADMIN_JWT_SECRET" >> .env
             echo "API_TOKEN_SALT=$PROD_API_TOKEN_SALT" >> .env

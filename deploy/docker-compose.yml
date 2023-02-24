@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  blue:
+    image: celebrations-api:${IMAGE_VERSION-latest}
+    ports:
+      - 1336:1337
+    environment:
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      API_TOKEN_SALT: ${API_TOKEN_SALT}
+      APP_KEYS: ${APP_KEYS}
+      HOST: ${HOST}
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: ${PORT}
+      URL: ${URL}
+      DATABASE_URL: ${DATABASE_URL}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_USERNAME: ${SMTP_USERNAME}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+  green:
+    image: celebrations-api:${IMAGE_VERSION-latest}
+    ports:
+      - 1337:1337
+    environment:
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      API_TOKEN_SALT: ${API_TOKEN_SALT}
+      APP_KEYS: ${APP_KEYS}
+      HOST: ${HOST}
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: ${PORT}
+      URL: ${URL}
+      DATABASE_URL: ${DATABASE_URL}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_USERNAME: ${SMTP_USERNAME}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+    restart: always

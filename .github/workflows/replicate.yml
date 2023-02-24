@@ -1,4 +1,4 @@
-name: Replicate celebrations
+name: Celebrations Replication
 
 on:
   schedule:

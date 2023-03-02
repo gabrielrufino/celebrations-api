@@ -1,4 +1,4 @@
-name: Update Host
+name: Host Updating
 
 on:
   schedule:

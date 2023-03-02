@@ -1,4 +1,4 @@
-name: Generate CSV
+name: CSV Generation
 
 on:
   schedule:

@@ -59,7 +59,7 @@ services:
       SMTP_PASSWORD: ${SMTP_PASSWORD}
     labels:
       - traefik.enable=true
-      - traefik.http.routers.green.rule=Host(`${HOST}`)
+      - traefik.http.routers.green.rule=Host(`${DOMAIN}`)
       - traefik.http.routers.green.tls=true
       - traefik.http.routers.green.tls.certresolver=letsencrypt
       - traefik.http.routers.green.entrypoints=websecure

@@ -95,6 +95,7 @@ jobs:
           PROD_HOST: ${{ secrets.PROD_HOST }}
           PROD_JWT_SECRET: ${{ secrets.PROD_JWT_SECRET }}
           PROD_PORT: ${{ secrets.PROD_PORT }}
+          PROD_DOMAIN: ${{ secrets.PROD_DOMAIN }}
           PROD_URL: ${{ secrets.PROD_URL }}
           PROD_DATABASE_URL: ${{ secrets.PROD_DATABASE_URL }}
           PROD_SMTP_HOST: ${{ secrets.PROD_SMTP_HOST }}
@@ -124,6 +125,7 @@ jobs:
             echo "JWT_SECRET=$PROD_JWT_SECRET" >> .env
             echo "HOST=$PROD_HOST" >> .env
             echo "PORT=$PROD_PORT" >> .env
+            echo "DOMAIN=$PROD_DOMAIN" >> .env
             echo "URL=$PROD_URL" >> .env
             echo "DATABASE_URL=$PROD_DATABASE_URL" >> .env
             echo "SMTP_HOST=$PROD_SMTP_HOST" >> .env

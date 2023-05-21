@@ -1,4 +1,4 @@
-FROM node:18.14.2-alpine
+FROM node:18.16.0-alpine
 
 ARG URL=0.0.0.0:1337
 ARG ADMIN_JWT_SECRET=defaultValue

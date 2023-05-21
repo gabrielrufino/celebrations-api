@@ -1,6 +1,26 @@
 version: '3.9'
 
 services:
+  traefik:
+    image: traefik:v2.10.1
+    command:
+      - --providers.docker
+      - --providers.docker.exposedByDefault=false
+      - --entrypoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --certificatesresolvers.letsencrypt.acme.email=contato@gabrielrufino.com
+      - --certificatesresolvers.letsencrypt.acme.storage=/etc/traefik/acme/acme.json
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge=true
+      - --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web
+      - --entrypoints.web.http.redirections.entryPoint.to=websecure
+      - --entrypoints.web.http.redirections.entryPoint.scheme=https
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - acme:/etc/traefik/acme
+    restart: always
   blue:
     image: celebrations-api:${IMAGE_VERSION-latest}
     ports:
@@ -20,6 +40,8 @@ services:
       SMTP_PASSWORD: ${SMTP_PASSWORD}
   green:
     image: celebrations-api:${IMAGE_VERSION-latest}
+    depends_on:
+      - traefik
     ports:
       - 1337:1337
     environment:
@@ -35,4 +57,13 @@ services:
       SMTP_PORT: ${SMTP_PORT}
       SMTP_USERNAME: ${SMTP_USERNAME}
       SMTP_PASSWORD: ${SMTP_PASSWORD}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.green.rule=Host(`${HOST}`)
+      - traefik.http.routers.green.tls=true
+      - traefik.http.routers.green.tls.certresolver=letsencrypt
+      - traefik.http.routers.green.entrypoints=websecure
     restart: always
+
+volumes:
+  acme:
